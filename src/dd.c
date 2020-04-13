@@ -751,44 +751,11 @@ swab_buffer (char *buf, size_t *nread)
    The offending behavior has been confirmed with an Exabyte SCSI tape
    drive accessed via /dev/nst0 on both Linux-2.2.17 and Linux-2.4.16.  */
 
-#ifdef __linux__
+/* We don't actually care about tape drives for the bootstrap, and the
+ * code that should be below dosen't work.
+ * Also TinyCC preprocessor dosen't like the code either. So delete it. */
 
-# include <sys/mtio.h>
-
-# define MT_SAME_POSITION(P, Q) \
-   ((P).mt_resid == (Q).mt_resid \
-    && (P).mt_fileno == (Q).mt_fileno \
-    && (P).mt_blkno == (Q).mt_blkno)
-
-static off_t
-skip_via_lseek (char const *filename, int fdesc, off_t offset, int whence)
-{
-  struct mtget s1;
-  struct mtget s2;
-  off_t new_position;
-  int got_original_tape_position;
-
-  got_original_tape_position = (ioctl (fdesc, MTIOCGET, &s1) == 0);
-  /* known bad device type */
-  /* && s.mt_type == MT_ISSCSI2 */
-
-  new_position = lseek (fdesc, offset, whence);
-  if (0 <= new_position
-      && got_original_tape_position
-      && ioctl (fdesc, MTIOCGET, &s2) == 0
-      && MT_SAME_POSITION (s1, s2))
-    {
-      error (0, 0, _("warning: working around lseek kernel bug for file (%s)\n\
-  of mt_type=0x%0lx -- see <sys/mtio.h> for the list of types"),
-	     filename, s2.mt_type);
-      new_position = -1;
-    }
-
-  return new_position;
-}
-#else
-# define skip_via_lseek(Filename, Fd, Offset, Whence) lseek (Fd, Offset, Whence)
-#endif
+#define skip_via_lseek(Filename, Fd, Offset, Whence) lseek (Fd, Offset, Whence)
 
 /* Throw away RECORDS blocks of BLOCKSIZE bytes on file descriptor FDESC,
    which is open with read permission for FILE.  Store up to BLOCKSIZE
