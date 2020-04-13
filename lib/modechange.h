@@ -39,8 +39,8 @@ struct mode_change
 {
   char op;			/* One of "=+-". */
   char flags;			/* Special operations. */
-  mode_t affected;		/* Set for u/g/o/s/s/t, if to be affected. */
-  mode_t value;			/* Bits to add/remove. */
+  int affected;		/* Set for u/g/o/s/s/t, if to be affected. */
+  int value;			/* Bits to add/remove. */
   struct mode_change *next;	/* Link to next change in list. */
 };
 
@@ -65,7 +65,7 @@ struct mode_change
 
 struct mode_change *mode_compile PARAMS ((const char *, unsigned));
 struct mode_change *mode_create_from_ref PARAMS ((const char *));
-mode_t mode_adjust PARAMS ((mode_t, const struct mode_change *));
+int mode_adjust PARAMS ((int, const struct mode_change *));
 void mode_free PARAMS ((struct mode_change *));
 
 #endif
