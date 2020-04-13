@@ -42,6 +42,10 @@
 
 #define EPERM 1
 
+#ifndef ENOTEMPTY
+# define ENOTEMPTY 0
+#endif
+
 /* Avoid shadowing warnings because these are functions declared
    in dirname.h as well as locals used below.  */
 #define dir_name rm_dir_name

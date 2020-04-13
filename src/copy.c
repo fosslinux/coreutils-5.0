@@ -48,6 +48,10 @@
 
 #define EPERM 1
 
+#ifndef ENOTEMPTY
+# define ENOTEMPTY 0
+#endif
+
 #define DO_CHOWN(Chown, File, New_uid, New_gid)				\
   (Chown (File, New_uid, New_gid)					\
    /* If non-root uses -p, it's ok if we can't preserve ownership.	\
