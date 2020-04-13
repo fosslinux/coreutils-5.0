@@ -47,7 +47,7 @@ memcoll (char *s1, size_t s1len, char *s2, size_t s2len)
   s1[s1len++] = '\0';
   s2[s2len++] = '\0';
 
-  while (! (errno = 0, (diff = strcoll (s1, s2)) || errno))
+  while (! (errno = 0, (diff = strcmp (s1, s2)) || errno))
     {
       /* strcoll found no difference, but perhaps it was fooled by NUL
 	 characters in the data.  Work around this problem by advancing

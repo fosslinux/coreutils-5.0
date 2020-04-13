@@ -332,7 +332,7 @@ nextarg (char *str)
     return 0;
   else
     {
-      int r = strcoll (*args, str) == 0;
+      int r = strcmp (*args, str) == 0;
       args += r;
       return r;
     }
@@ -494,7 +494,7 @@ eval6 (void)
       r = eval6 ();
       tostring (l);
       tostring (r);
-      v = int_value (strcspn (l->u.s, r->u.s) + 1);
+      v = int_value (strlen(l->u.s) - strlen(r->u.s) + 1);
       if (v->u.i == strlen (l->u.s) + 1)
 	v->u.i = 0;
       freev (l);
@@ -668,7 +668,7 @@ eval2 (void)
       r = eval3 ();
       tostring (l);
       tostring (r);
-      lval = strcoll (l->u.s, r->u.s);
+      lval = strcmp (l->u.s, r->u.s);
       rval = 0;
       if (toarith (l) && toarith (r))
 	{

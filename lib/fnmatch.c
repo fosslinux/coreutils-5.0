@@ -225,7 +225,7 @@ static int posixly_correct;
 #  endif
 # endif
 # define MEMCHR(S, C, N) memchr (S, C, N)
-# define STRCOLL(S1, S2) strcoll (S1, S2)
+# define STRCOLL(S1, S2) strcmp (S1, S2)
 # include "fnmatch_loop.c"
 
 
