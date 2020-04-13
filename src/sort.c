@@ -2185,7 +2185,8 @@ main (int argc, char **argv)
   hard_LC_TIME = hard_locale (LC_TIME);
 #endif
 
-#if HAVE_SETLOCALE
+/* Broken under tinycc */
+#if 0 
   /* Let's get locale's representation of the decimal point */
   {
     struct lconv *lconvp = localeconv ();
