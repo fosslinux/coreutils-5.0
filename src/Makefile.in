@@ -155,13 +155,13 @@ sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 
-EXTRA_PROGRAMS = chroot df hostid nice pinky stty su uname uptime users who
+EXTRA_PROGRAMS = chroot df hostid nice pinky stty uname uptime users who
 EXTRA_SCRIPTS = nohup
 
 bin_SCRIPTS = groups @OPTIONAL_BIN_ZCRIPTS@
-bin_PROGRAMS = chgrp chown chmod cp dd dircolors du \
+bin_PROGRAMS = chgrp chown chmod cp dircolors \
   ginstall link ln dir vdir ls mkdir \
-  mkfifo mknod mv readlink rm rmdir shred stat sync touch unlink \
+  mkfifo mknod mv readlink rm rmdir shred touch unlink \
   cat cksum comm csplit cut expand fmt fold head join md5sum \
   nl od paste pr ptx sha1sum sort split sum tac tail tr tsort unexpand uniq wc \
   basename date dirname echo env expr factor false \
@@ -180,7 +180,7 @@ noinst_HEADERS = \
 EXTRA_DIST = dcgen dircolors.hin tac-pipe.c \
   groups.sh nohup.sh wheel-gen.pl
 
-CLEANFILES = $(SCRIPTS) su
+CLEANFILES = $(SCRIPTS)
 
 INCLUDES = -I.. -I$(srcdir) -I$(top_srcdir)/lib -I../lib
 
@@ -289,14 +289,14 @@ mkinstalldirs = $(SHELL) $(top_srcdir)/config/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 EXTRA_PROGRAMS = chroot$(EXEEXT) df$(EXEEXT) hostid$(EXEEXT) \
-	nice$(EXEEXT) pinky$(EXEEXT) stty$(EXEEXT) su$(EXEEXT) \
+	nice$(EXEEXT) pinky$(EXEEXT) stty$(EXEEXT) \
 	uname$(EXEEXT) uptime$(EXEEXT) users$(EXEEXT) who$(EXEEXT)
 bin_PROGRAMS = chgrp$(EXEEXT) chown$(EXEEXT) chmod$(EXEEXT) cp$(EXEEXT) \
-	dd$(EXEEXT) dircolors$(EXEEXT) du$(EXEEXT) ginstall$(EXEEXT) \
+	dircolors$(EXEEXT) ginstall$(EXEEXT) \
 	link$(EXEEXT) ln$(EXEEXT) dir$(EXEEXT) vdir$(EXEEXT) \
 	ls$(EXEEXT) mkdir$(EXEEXT) mkfifo$(EXEEXT) mknod$(EXEEXT) \
 	mv$(EXEEXT) readlink$(EXEEXT) rm$(EXEEXT) rmdir$(EXEEXT) \
-	shred$(EXEEXT) stat$(EXEEXT) sync$(EXEEXT) touch$(EXEEXT) \
+	shred$(EXEEXT)  touch$(EXEEXT) \
 	unlink$(EXEEXT) cat$(EXEEXT) cksum$(EXEEXT) comm$(EXEEXT) \
 	csplit$(EXEEXT) cut$(EXEEXT) expand$(EXEEXT) fmt$(EXEEXT) \
 	fold$(EXEEXT) head$(EXEEXT) join$(EXEEXT) md5sum$(EXEEXT) \
@@ -795,21 +795,21 @@ CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 DIST_SOURCES = basename.c cat.c $(chgrp_SOURCES) chmod.c \
 	$(chown_SOURCES) chroot.c cksum.c comm.c $(cp_SOURCES) csplit.c \
-	cut.c date.c dd.c df.c $(dir_SOURCES) dircolors.c dirname.c \
-	du.c echo.c env.c expand.c expr.c factor.c false.c fmt.c fold.c \
+	cut.c date.c df.c $(dir_SOURCES) dircolors.c dirname.c \
+	echo.c env.c expand.c expr.c factor.c false.c fmt.c fold.c \
 	$(ginstall_SOURCES) head.c hostid.c hostname.c id.c join.c \
 	kill.c link.c ln.c logname.c $(ls_SOURCES) $(md5sum_SOURCES) \
 	mkdir.c mkfifo.c mknod.c $(mv_SOURCES) nice.c nl.c od.c paste.c \
 	pathchk.c pinky.c pr.c printenv.c printf.c ptx.c pwd.c \
 	readlink.c $(rm_SOURCES) rmdir.c seq.c $(sha1sum_SOURCES) \
-	shred.c sleep.c sort.c split.c stat.c stty.c su.c sum.c sync.c \
+	shred.c sleep.c sort.c split.c stty.c sum.c \
 	tac.c tail.c tee.c test.c touch.c tr.c true.c tsort.c tty.c \
 	uname.c unexpand.c uniq.c unlink.c uptime.c users.c \
 	$(vdir_SOURCES) wc.c who.c whoami.c yes.c
 HEADERS = $(noinst_HEADERS)
 
 DIST_COMMON = $(noinst_HEADERS) Makefile.am Makefile.in
-SOURCES = basename.c cat.c $(chgrp_SOURCES) chmod.c $(chown_SOURCES) chroot.c cksum.c comm.c $(cp_SOURCES) csplit.c cut.c date.c dd.c df.c $(dir_SOURCES) dircolors.c dirname.c du.c echo.c env.c expand.c expr.c factor.c false.c fmt.c fold.c $(ginstall_SOURCES) head.c hostid.c hostname.c id.c join.c kill.c link.c ln.c logname.c $(ls_SOURCES) $(md5sum_SOURCES) mkdir.c mkfifo.c mknod.c $(mv_SOURCES) nice.c nl.c od.c paste.c pathchk.c pinky.c pr.c printenv.c printf.c ptx.c pwd.c readlink.c $(rm_SOURCES) rmdir.c seq.c $(sha1sum_SOURCES) shred.c sleep.c sort.c split.c stat.c stty.c su.c sum.c sync.c tac.c tail.c tee.c test.c touch.c tr.c true.c tsort.c tty.c uname.c unexpand.c uniq.c unlink.c uptime.c users.c $(vdir_SOURCES) wc.c who.c whoami.c yes.c
+SOURCES = basename.c cat.c $(chgrp_SOURCES) chmod.c $(chown_SOURCES) chroot.c cksum.c comm.c $(cp_SOURCES) csplit.c cut.c date.c df.c $(dir_SOURCES) dircolors.c dirname.c echo.c env.c expand.c expr.c factor.c false.c fmt.c fold.c $(ginstall_SOURCES) head.c hostid.c hostname.c id.c join.c kill.c link.c ln.c logname.c $(ls_SOURCES) $(md5sum_SOURCES) mkdir.c mkfifo.c mknod.c $(mv_SOURCES) nice.c nl.c od.c paste.c pathchk.c pinky.c pr.c printenv.c printf.c ptx.c pwd.c readlink.c $(rm_SOURCES) rmdir.c seq.c $(sha1sum_SOURCES) shred.c sleep.c sort.c split.c stty.c sum.c tac.c tail.c tee.c test.c touch.c tr.c true.c tsort.c tty.c uname.c unexpand.c uniq.c unlink.c uptime.c users.c $(vdir_SOURCES) wc.c who.c whoami.c yes.c
 
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
@@ -1478,26 +1478,7 @@ $(SCRIPTS): Makefile
 	chmod +x $@-t
 	mv $@-t $@
 
-all-local: su$(EXEEXT)
-
-install-root: su$(EXEEXT)
-	@$(INSTALL_SU)
-
-install-exec-local: su$(EXEEXT)
-	@TMPFILE=$(DESTDIR)$(bindir)/.su-$$$$; \
-	rm -f $$TMPFILE; \
-	echo > $$TMPFILE; \
-	can_create_suid_root_executable=no; \
-	chown root $$TMPFILE > /dev/null 2>&1 \
-	  && chmod $(setuid_root_mode) $$TMPFILE > /dev/null 2>&1 \
-	  && can_create_suid_root_executable=yes; \
-	rm -f $$TMPFILE; \
-	if test $$can_create_suid_root_executable = yes; then \
-	  $(INSTALL_SU); \
-	else \
-	  echo "WARNING: insufficient access; not installing su"; \
-	  echo "NOTE: to install su, run 'make install-root' as root"; \
-	fi
+all-local:
 
 uninstall-local:
 # Remove su only if it's one we installed.
