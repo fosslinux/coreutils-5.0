@@ -227,9 +227,7 @@ to be recovered later.\n\
   exit (status);
 }
 
-#if ! HAVE_FDATASYNC
-# define fdatasync(fd) -1
-#endif
+#define fdatasync(fd) -1
 
 /*
  * --------------------------------------------------------------------
@@ -1402,9 +1400,6 @@ wipename (char *oldname, char const *qoldname, struct Options const *flags)
 	    {
 	      if (rename (oldname, newname) == 0)
 		{
-		  if (dir_fd < 0
-		      || (fdatasync (dir_fd) < 0 && fsync (dir_fd) < 0))
-		    sync ();	/* Force directory out */
 		  if (flags->verbose)
 		    {
 		      /*
@@ -1436,8 +1431,6 @@ wipename (char *oldname, char const *qoldname, struct Options const *flags)
     }
   free (newname);
   err = unlink (oldname);
-  if (dir_fd < 0 || (fdatasync (dir_fd) < 0 && fsync (dir_fd) < 0))
-    sync ();
   close (dir_fd);
   if (!err && flags->verbose)
     error (0, 0, _("%s: removed"), qoldname);
