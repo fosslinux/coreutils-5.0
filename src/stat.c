@@ -109,7 +109,7 @@ char *program_name;
    Others have statfs.f_fstypename[MFSNAMELEN]. (NetBSD 1.5.2)
    Still others have neither and have to get by with f_type (Linux).  */
 static char *
-human_fstype (STRUCT_STATVFS const *statfsbuf)
+human_fstype (const struct statvfs *statfsbuf)
 {
 #ifdef STATXFS_FILE_SYSTEM_TYPE_MEMBER_NAME
   /* Cast away the `const' attribute.  */
