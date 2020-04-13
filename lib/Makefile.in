@@ -399,10 +399,10 @@ DIST_COMMON = README ChangeLog Makefile.am Makefile.in TODO \
 	dup2.c error.c error.h euidaccess.c fchdir-stub.c fchown-stub.c \
 	fileblocks.c fnmatch.c fsusage.c ftruncate.c ftw.c getcwd.c \
 	getdate.c getgroups.c gethostname.c getline.c getloadavg.c \
-	getpass.c gettimeofday.c getusershell.c group-member.c lchown.c \
+	gettimeofday.c getusershell.c group-member.c lchown.c \
 	lstat-stub.c lstat.c malloc.c memchr.c memcmp.c memcpy.c \
 	memmove.c memrchr.c memset.c mkdir.c mkstemp.c mktime.c \
-	mountlist.c nanosleep.c obstack.c obstack.h putenv.c raise.c \
+	nanosleep.c obstack.c obstack.h putenv.c raise.c \
 	readlink-stub.c readutmp.c realloc.c regex.c rename.c rmdir.c \
 	rpmatch.c sig2str.c stat.c stpcpy.c strcasecmp.c strcspn.c \
 	strdup.c strncasecmp.c strndup.c strnlen.c strpbrk.c strstr.c \
