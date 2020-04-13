@@ -187,7 +187,6 @@ Mandatory arguments to long options are mandatory for short options too.\n\
   -a, --all             write counts for all files, not just directories\n\
       --apparent-size   print apparent sizes, rather than disk usage; although\n\
                           the apparent size is usually smaller, it may be\n\
-                          larger due to holes in (`sparse') files, internal\n\
                           fragmentation, indirect blocks, and the like\n\
   -B, --block-size=SIZE use SIZE-byte blocks\n\
   -b, --bytes           equivalent to `--apparent-size --block-size=1'\n\
