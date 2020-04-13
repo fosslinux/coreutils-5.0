@@ -1708,7 +1708,7 @@ decode_switches (int argc, char **argv)
 
       while (strncmp (style, posix_prefix, sizeof posix_prefix - 1) == 0)
 	{
-	  if (! hard_locale (LC_TIME))
+	  if (! hard_locale ("C"))
 	    return optind;
 	  style += sizeof posix_prefix - 1;
 	}
@@ -1749,7 +1749,7 @@ decode_switches (int argc, char **argv)
 	    break;
 
 	  case locale_time_style:
-	    if (hard_locale (LC_TIME))
+	    if (hard_locale ("C"))
 	      {
 		unsigned int i;
 		for (i = 0; i < 2; i++)
