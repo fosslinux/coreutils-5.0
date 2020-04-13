@@ -463,7 +463,8 @@ argument must be a format string beginning with `+'."),
 	{
 	  /* Set the system clock to the specified date, then regardless of
 	     the success of that operation, format and print that date.  */
-	  if (settime (&when) != 0)
+		/* We can't set time with Mes C Library. */
+	  if (true)
 	    {
 	      error (0, errno, _("cannot set date"));
 	      status = 1;
