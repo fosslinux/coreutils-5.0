@@ -115,6 +115,7 @@
 # define O_NOCTTY 0  /* This is a very optional frill */
 #endif
 
+#define O_NONBLOCK 00004
 #ifndef MB_LEN_MAX
 # define MB_LEN_MAX 1
 #endif

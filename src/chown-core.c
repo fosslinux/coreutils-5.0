@@ -22,6 +22,9 @@
 #include <sys/types.h>
 #include <pwd.h>
 #include <grp.h>
+/* #include <fctnl.h> - we don't have this in Mes C lib */
+#define O_NONBLOCK 00004
+#define O_NOCTTY   00400
 
 #include "system.h"
 #include "error.h"
