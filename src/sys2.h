@@ -22,6 +22,9 @@
 # undef S_ISSOCK
 #endif
 
+/* limits */
+#include <limits.h>
+#define CHAR_MIN -127
 
 #ifndef S_ISBLK
 # ifdef S_IFBLK
