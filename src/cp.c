@@ -37,6 +37,8 @@
 #include "path-concat.h"
 #include "quote.h"
 
+#define EPERM 1
+
 #define ASSIGN_BASENAME_STRDUPA(Dest, File_name)	\
   do							\
     {							\

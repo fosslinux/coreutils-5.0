@@ -46,6 +46,8 @@
 #include "same.h"
 #include "xreadlink.h"
 
+#define EPERM 1
+
 #define DO_CHOWN(Chown, File, New_uid, New_gid)				\
   (Chown (File, New_uid, New_gid)					\
    /* If non-root uses -p, it's ok if we can't preserve ownership.	\

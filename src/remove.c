@@ -40,6 +40,8 @@
 #include "quote.h"
 #include "remove.h"
 
+#define EPERM 1
+
 /* Avoid shadowing warnings because these are functions declared
    in dirname.h as well as locals used below.  */
 #define dir_name rm_dir_name

@@ -42,6 +42,10 @@
 #include "xstrtol.h"
 #include "xstrtod.h"
 
+#ifndef EPERM
+# define EPERM 1
+#endif
+
 /* The official name of this program (e.g., no `g' prefix).  */
 #define PROGRAM_NAME "tail"
 

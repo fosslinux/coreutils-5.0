@@ -62,6 +62,10 @@ time_t time ();
 # define EISDIR 0
 #endif
 
+#ifndef EPERM
+# define EPERM 1
+#endif
+
 /* The name by which this program was run. */
 char *program_name;
 
