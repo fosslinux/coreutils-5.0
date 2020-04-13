@@ -68,6 +68,9 @@
 #if HAVE_STDLIB_H
 # include <stdlib.h>
 #endif
+#ifndef MB_LEN_MAX
+# define MB_LEN_MAX 1
+#endif
 
 /* Get mbstate_t, mbrtowc(), mbsinit(), wcwidth().  */
 #if HAVE_WCHAR_H

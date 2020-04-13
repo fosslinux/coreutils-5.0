@@ -30,6 +30,10 @@
 #include "human.h"
 #include "safe-read.h"
 
+#ifndef MB_LEN_MAX
+# define MB_LEN_MAX 1
+#endif
+
 /* The official name of this program (e.g., no `g' prefix).  */
 #define PROGRAM_NAME "sum"
 

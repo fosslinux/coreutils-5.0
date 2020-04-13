@@ -42,6 +42,10 @@
 #include "same.h"
 #include "xstrtol.h"
 
+#ifndef MB_LEN_MAX
+# define MB_LEN_MAX 1
+#endif
+
 /* The official name of this program (e.g., no `g' prefix).  */
 #define PROGRAM_NAME "du"
 

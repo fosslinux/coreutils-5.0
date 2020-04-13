@@ -115,6 +115,10 @@
 # define O_NOCTTY 0  /* This is a very optional frill */
 #endif
 
+#ifndef MB_LEN_MAX
+# define MB_LEN_MAX 1
+#endif
+
 #define DEFAULT_PASSES 25	/* Default */
 
 /* How many seconds to wait before checking whether to output another

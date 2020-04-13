@@ -84,6 +84,10 @@ char *getenv ();
 /* The maximum length of a suffix like "KiB".  */
 #define HUMAN_READABLE_SUFFIX_LENGTH_MAX 3
 
+#ifndef MB_LEN_MAX
+# define MB_LEN_MAX 1
+#endif
+
 static const char power_letter[] =
 {
   0,	/* not used */
