@@ -615,7 +615,9 @@ isaac_seed (struct isaac_state *s)
     hrtime_t t = gethrtime ();
     ISAAC_SEED (s, t);
 #else
-# if HAVE_CLOCK_GETTIME		/* POSIX ns-resolution */
+/* Mes C Library does not have CLOCK_REALTIME. Who cares, we are just
+ * getting seed material. */
+# if 0		/* POSIX ns-resolution */
     struct timespec t;
     clock_gettime (CLOCK_REALTIME, &t);
 # else
